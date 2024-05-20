@@ -1,4 +1,3 @@
-import React from "react";
 import Createpost from "@/components/ui/postform";
 
 const createpost = () => {

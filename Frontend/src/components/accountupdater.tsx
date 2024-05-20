@@ -6,7 +6,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { FaEdit } from "react-icons/fa";
-import Fileuploader from "./fileuploader";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -22,7 +22,7 @@ import {
 
 import { ProfileForm } from "@/lib/validation";
 
-const accountupdater = (profile: any) => {
+const accountupdater = () => {
   // 1. Define your form.
   const form = useForm<z.infer<typeof ProfileForm>>({
     resolver: zodResolver(ProfileForm),
@@ -51,7 +51,7 @@ const accountupdater = (profile: any) => {
               <FormField
                 control={form.control}
                 name="file"
-                render={({ field }) => (
+                render={() => (
                   <FormItem>
                     <FormLabel>Username</FormLabel>
                     <FormControl></FormControl>

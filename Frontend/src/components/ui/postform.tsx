@@ -2,7 +2,7 @@ import { CiImageOn } from "react-icons/ci";
 import { BsEmojiSmileFill } from "react-icons/bs";
 import { useRef, useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
-import UsePost from "@/hooks/usePost";
+
 import axios from "axios";
 
 const Createpost = () => {
@@ -10,7 +10,7 @@ const Createpost = () => {
   const [img, setImg] = useState(null);
   const imgRef = useRef(null);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
       const res = await axios.post("/api/posts/create", { img, text });
@@ -24,11 +24,12 @@ const Createpost = () => {
     }
   };
 
-  const handleImgChange = (e) => {
+  const handleImgChange = (e: any) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
+        //@ts-ignore
         setImg(reader.result);
       };
       reader.readAsDataURL(file);
@@ -49,6 +50,7 @@ const Createpost = () => {
             className="absolute top-0 right-0 text-white bg-gray-800 rounded-full w-5 h-5 cursor-pointer"
             onClick={() => {
               setImg(null);
+              //@ts-ignore
               imgRef.current.value = null;
             }}
           />
@@ -63,6 +65,7 @@ const Createpost = () => {
         <div className="flex gap-1 items-center">
           <CiImageOn
             className="fill-primary w-6 h-6 cursor-pointer"
+            //@ts-ignore
             onClick={() => imgRef.current.click()}
           />
           <BsEmojiSmileFill className="fill-primary w-5 h-5 cursor-pointer" />

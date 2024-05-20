@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 import useSignup from "@/hooks/useSignup";
 
 const signup = () => {
-  const { loading, newuser } = useSignup();
+  const { newuser } = useSignup();
   // 1. Define your form.
   const form = useForm<z.infer<typeof SignupForm>>({
     resolver: zodResolver(SignupForm),
@@ -31,7 +31,6 @@ const signup = () => {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     newuser(values);
-    
   }
 
   return (

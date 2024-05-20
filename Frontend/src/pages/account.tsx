@@ -1,6 +1,5 @@
-import React from "react";
 import Accountupdater from "@/components/accountupdater";
-import { FaEdit } from "react-icons/fa";
+
 import { useAuth } from "@/context/authcontext";
 
 const account = () => {

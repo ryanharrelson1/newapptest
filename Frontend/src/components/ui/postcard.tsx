@@ -1,6 +1,6 @@
 import { Button } from "./button";
 import { FaRegTrashAlt } from "react-icons/fa";
-
+//@ts-ignore
 const postcard = ({ post }) => {
   const postowner = post.user;
   return (
